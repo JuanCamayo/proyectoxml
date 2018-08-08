@@ -5,6 +5,10 @@
  */
 package modelo;
 
+import java.util.LinkedList;
+import org.jdom2.Document;
+import org.jdom2.Element;
+
 /**
  *
  * @author juan.camayo
@@ -23,6 +27,10 @@ public class Empleado extends Persona {
         super(nombre, dirrecion, edad);
         this.codigoEmpleado = codigoEmpleado;
         this.departamento = departamento;
+    }
+
+    public Empleado() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getCodigoEmpleado() {
@@ -46,6 +54,28 @@ public class Empleado extends Persona {
         return super.toString() + "codigoEmpleado=" + codigoEmpleado + ", departamento=" + departamento;
     }
     
-    
-    
+       private boolean crearFileXML(LinkedList<Empleado> listaEmpleados) {
+        
+           try {
+            
+               Element company = new Element ("company");
+               Document doc = new Document (company);
+               
+             
+               for (int i =0; i < listaEmpleados.size(); i++){
+                   
+                   
+               Element staff = new Element ("staff");
+                 staff.addContent(new Element("nombre").setText(listaEmpleados.get(i).getNombre()));
+               
+               staff.addContent(new Element("direccion").setText(listaEmpleados.get(i).getDireccion()));
+               
+               }
+           
+           
+           
+           }
+    }
+
+   
 }

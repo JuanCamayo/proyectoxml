@@ -58,12 +58,27 @@ public class FXMLDocumentController implements Initializable {
         int edad = Integer.parseInt(TEdad.getText());
         String codigo = TCodigo.getText();
         String departamento = TDepartamento.getText();
-       
+        
+        Empleado objE = new Empleado(codigo, departamento, nombre, direccion, edad);
+        
+        
+     listaEmpleados.add(objE);
+    }
+    
+    
+    @FXML
+    private void creararchivoXML (ActionEvent event){
+    Empleado objE  = new Empleado();
+    
+    boolean guardar = crearFileXML(listaEmpleados);
+      
+    
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        listaEmpleados = new LinkedList<>();
     }    
-    
+
+  
 }
